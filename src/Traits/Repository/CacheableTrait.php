@@ -65,10 +65,11 @@ trait CacheableTrait
      */
     public function cacheKey($method, $args): string
     {
+        $locale = app()->getLocale();
         $class = $this->baseClassName();
         $args = sha1(serialize($args));
 
-        return implode(':', [$class, $method, $args]);
+        return implode(':', [$locale, $class, $method, $args]);
     }
 
     /**
