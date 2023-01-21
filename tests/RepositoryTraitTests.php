@@ -87,12 +87,13 @@ class RepositoryTraitTests extends TestCase
     /** @test */
     public function get_default_cache_key_value()
     {
+        $locale = 'en';
         $args = [
             'asd' => 'qwe',
             'qwe' => 'rty'
         ];
         $actual = $this->videoRepository->cacheKey('getMyVideo', $args);
-        $expected = 'Video:getMyVideo:6bc761f7eee0bc5fae1f5758f8e9f9dac3a94c7e';
+        $expected = 'en:Video:getMyVideo:6bc761f7eee0bc5fae1f5758f8e9f9dac3a94c7e';
 
         $this->assertEquals($expected, $actual);
     }
